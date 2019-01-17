@@ -1,3 +1,4 @@
+package frc.robot.subsystems;
 import com.ctre.phoenix.motorcontrol.can.WPI_VictorSPX;
 import edu.wpi.first.wpilibj.*;
 import edu.wpi.first.wpilibj.GenericHID.Hand;
@@ -51,6 +52,18 @@ public class Arm extends Subsystem {
    public void stopWrist() {
       shoulder.set(0);
    }
+
+   /**
+     * Method of the drive train, takes in an xbox controller in order to drive. Currently,
+     * inputs are being squared.
+     * @param xbox the xbox controller, only one joystick is used
+     */
+    public void teleopDrive(XboxController xbox){
+      //tells the drive train to drive based on a joystick
+      //the first parameter is speed, the second angle of turn
+      //the third parameter enables squared inputs, which "decreases sensitivity at low speeds"
+      
+  }
 
    // how to tell arm to move based on joystick??
 }

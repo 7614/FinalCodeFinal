@@ -1,23 +1,25 @@
-package org.usfirst.frc.team1.robot.commands;
+package frc.robot.commands;
+import frc.robot.subsystems.*;
 
 import edu.wpi.first.wpilibj.command.Command;
-import org.usfirst.frc.team1.robot.Robot;
+import frc.robot.*;
+import frc.robot.commands.*;
 /**
  *
  */
 public class MoveArm extends Command {
 
     public MoveArm() {
-        requires(Robot.Arm);
+        requires(Robot.arm);
         setTimeout(.9);
     }
 
     protected void initialize() {
-    	Robot.arm.move()
+    	
     }
 
     protected void execute() {
-         Arm.TeleopDrive(Robot.m_oi.getJoystick());
+         Robot.arm.teleopDrive(Robot.m_oi.getJoystick());
     }
 
     protected boolean isFinished() {
@@ -25,7 +27,9 @@ public class MoveArm extends Command {
     }
 
     protected void end() {
-    	Robot.Arm.stop();
+        Robot.arm.stopElbow();
+        Robot.arm.stopShoulder();
+        Robot.arm.stopWrist();
     }
 
     protected void interrupted() {

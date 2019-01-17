@@ -1,6 +1,7 @@
 package frc.robot.subsystems;
 import com.ctre.phoenix.motorcontrol.can.WPI_VictorSPX;
 import edu.wpi.first.wpilibj.*;
+import frc.robot.commands.*;
 import edu.wpi.first.wpilibj.GenericHID.Hand;
 import edu.wpi.first.wpilibj.command.Subsystem;
 import edu.wpi.first.wpilibj.drive.DifferentialDrive;
@@ -25,7 +26,7 @@ public class DriveTrain extends Subsystem{
     DifferentialDrive base_drive = new DifferentialDrive(leftGroup, rightGroup); //takes inputs of 2 motor controller groups
     
     @Override
-    protected static void initDefaultCommand(){
+    protected void initDefaultCommand(){
         //whenever the drive train is not running a command, ArcadeDrive will be added to the scheduler
         setDefaultCommand(new ArcadeDrive());
     }

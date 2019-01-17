@@ -3,13 +3,14 @@ package frc.robot.commands;
 import edu.wpi.first.wpilibj.command.Command;
 import frc.robot.OI;
 import frc.robot.Robot;
+import frc.robot.subsystems.*;
 
 
 public class ArcadeDrive extends Command{
 
     public ArcadeDrive(){
         //this command will interupt any other command using the drive train
-        requires(Robot.);
+        requires(Robot.driveTrain);
     }
 
     public static void driveForward(){
@@ -26,7 +27,7 @@ public class ArcadeDrive extends Command{
     @Override
     protected void execute(){
         //calls the function of the drive train, which will call an arcade drive method
-        DriveTrain.TeleopDrive(Robot.m_oi.getJoystick());
+        Robot.driveTrain.teleopDrive(Robot.m_oi.getJoystick());
     }
 
 }
