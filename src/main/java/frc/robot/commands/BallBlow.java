@@ -2,20 +2,19 @@ package frc.robot.commands;
 import frc.robot.subsystems.*;
 import edu.wpi.first.wpilibj.command.Command;
 import frc.robot.Robot;
-public class BallSucc extends Command{
-    public BallSucc(){
+public class BallBlow extends Command{
+    public BallBlow(){
         requires(Robot.ballIntake);
     }
-    
-    
     @Override
     protected boolean isFinished(){
-        //just for now
+        //just for now 
         return false;
+
     }
     @Override
     protected void execute(){
-        Robot.ballIntake.forwardMotor1();
-        Robot.ballIntake.backwardMotor2();
+        Robot.ballIntake.backwardMotor1();
+        Robot.ballIntake.forwardMotor2();
     }
 }
