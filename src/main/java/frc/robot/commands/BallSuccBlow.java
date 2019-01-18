@@ -3,8 +3,11 @@ import frc.robot.subsystems.*;
 import edu.wpi.first.wpilibj.command.Command;
 import frc.robot.Robot;
 public class BallSuccBlow extends Command{
-    public BallSuccBlow(){
+
+    int succBlowMode;
+    public BallSuccBlow(int mode){
         requires(Robot.ballIntake);
+        this.succBlowMode=mode;
     }
     @Override
     protected boolean isFinished(){
@@ -14,6 +17,12 @@ public class BallSuccBlow extends Command{
     }
     @Override
     protected void execute(){
-        Robot.ballIntake.teleopInTake(Robot.m_oi.getJoystick());
+        if(this.succBlowMode==1){
+            Robot.ballIntake.backwardMotor1();
+            Robot.ballIntake.forwardMotor2();
+        }else if(this.succBlowMode==-1){
+            Robot.ballIntake.backwardMotor2();
+            Robot.ballIntake.forwardMotor1();
+        }
     }
 }

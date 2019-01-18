@@ -2,27 +2,19 @@ package frc.robot.subsystems;
 
 import edu.wpi.first.wpilibj.Solenoid;
 import edu.wpi.first.wpilibj.command.Subsystem;
+import frc.robot.RobotMap;
 
 public class HatchPiston extends Subsystem {
-   //Initialize Solenoid objects (each individual piston)
-  Solenoid sol1 = new Solenoid(0);
-    Solenoid sol2 = new Solenoid(1); //Solenoid ID values assumed; may be different
-  
-    @Override
-    public void initDefaultCommand() {
-      
-    }
+  // Initialize Solenoid objects (each individual piston)
+  Solenoid sol1 = new Solenoid(RobotMap.SOL1);
+  Solenoid sol2 = new Solenoid(RobotMap.SOL2); // Solenoid ID values assumed; may be different
 
-    public void pushHatch() {
-      sol1.set(true);
-      sol2.set(true); //Pressurise 
-      
-    
-      //Need command to give pistons time to extend
-
-
-      sol1.set(false);
-      sol2.set(false); //Depressurise
-    }
+  @Override
+  public void initDefaultCommand() {
+    sol1.setPulseDuration(0.5);
   }
-  
+
+  public void pushHatch() {
+    sol1.startPulse();
+  }
+}

@@ -17,53 +17,34 @@ public class Arm extends Subsystem {
 
    }
 
-   public void openShoulder() {
-      shoulder.set(10);
-   }
-
-   public void closeShoulder() {
-      shoulder.set(-10);
+   public void moveShoulder(double speed) {
+      shoulder.set(speed);
    }
 
    public void stopShoulder() {
       shoulder.set(0);
    }
 
-   public void openElbow() {
-      shoulder.set(10);
-   }
-
-   public void closeElbow() {
-      shoulder.set(-10);
+  
+   public void moveElbow(double speed) {
+      shoulder.set(speed);
    }
 
    public void stopElbow() {
       shoulder.set(0);
    }
 
-   public void openWrist() {
-      shoulder.set(10);
-   }
-
-   public void closeWrist() {
-      shoulder.set(-10);
+   public void moveWrist(double speed) {
+      shoulder.set(speed);
+      
    }
 
    public void stopWrist() {
       shoulder.set(0);
    }
 
-   /**
-     * Method of the drive train, takes in an xbox controller in order to drive. Currently,
-     * inputs are being squared.
-     * @param xbox the xbox controller, only one joystick is used
-     */
-    public void teleopDrive(XboxController xbox){
-      //tells the drive train to drive based on a joystick
-      //the first parameter is speed, the second angle of turn
-      //the third parameter enables squared inputs, which "decreases sensitivity at low speeds"
-      
-  }
+   
+   
 
    // how to tell arm to move based on joystick??
 }

@@ -5,14 +5,24 @@
 /* the project.                                                               */
 /*----------------------------------------------------------------------------*/
 
-package frc.robot;
+package frc.robot.OI;
+
 import edu.wpi.first.wpilibj.XboxController;
+import edu.wpi.first.wpilibj.GenericHID.Hand;
+import edu.wpi.first.wpilibj.Joystick;
+import edu.wpi.first.wpilibj.buttons.Button;
+import edu.wpi.first.wpilibj.buttons.JoystickButton;
+import edu.wpi.first.wpilibj.hal.HAL;
+import frc.robot.*;
+import frc.robot.commands.BallSuccBlow;
+import frc.robot.commands.MoveArm;
+import frc.robot.commands.*;
 
 /**
  * This class is the glue that binds the controls on the physical operator
  * interface to the commands and command groups that allow control of the robot.
  */
-public class OI {
+public class OI{
   //// CREATING BUTTONS
   // One type of button is a joystick button which is any button on a
   //// joystick.
@@ -20,7 +30,7 @@ public class OI {
   // number it is.
   // Joystick stick = new Joystick(port);
   // Button button = new JoystickButton(stick, buttonNumber);
-  public XboxController xbox = new XboxController(RobotMap.JOYSTICKPORT);
+
   // There are a few additional built in buttons you can use. Additionally,
   // by subclassing Button you can create custom triggers and bind those to
   // commands the same as any other Button.
@@ -41,11 +51,31 @@ public class OI {
   // until it is finished as determined by it's isFinished method.
   // button.whenReleased(new ExampleCommand());
   /**
-   * Returns the joystick object used to control the robot, currently an 
-   * xbox controller.
+   * Returns the joystick object used to control the robot, currently an xbox
+   * controller.
+   * 
    * @return the xbox controller object
    */
-  public XboxController getJoystick(){
-    return xbox;
+
+  
+   public XboxController getJoystick(){
+     return this.xbox;
+   }
+
+    XboxController xbox = new XboxController(RobotMap.JOYSTICKPORT);
+    Button liftUpButton = new JoystickButton(xbox, RobotMap.xboxRightBumper);
+    Button liftDownButton = new JoystickButton(xbox, RobotMap.xboxRightBumper);
+    Button ballSuccButton = new JoystickButton(xbox, RobotMap.xboxAButton);
+    Button ballBlowButton = new JoystickButton(xbox, RobotMap.xboxBButton);
+    Button releaseHatchButton = new JoystickButton(xbox,RobotMap.xboxXButton);
+    
+ 
+
+  public OI() {
+    liftUpButton.whenPressed(new MoveArm(1));
+    liftDownButton.whenPressed(new MoveArm(-1));
+    ballBlowButton.whenPressed(new BallSuccBlow(1));
+    ballBlowButton.whenPressed(new BallSuccBlow(-1));
+    releaseHatchButton.whenPressed(new Release());
   }
 }

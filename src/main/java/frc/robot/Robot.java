@@ -9,11 +9,15 @@ package frc.robot;
 import com.ctre.phoenix.motorcontrol.can.WPI_VictorSPX;
 import edu.wpi.first.wpilibj.*;
 import frc.robot.RobotMap;
+import frc.robot.OI.OI;
 import edu.wpi.first.wpilibj.command.Command;
 import edu.wpi.first.wpilibj.command.Scheduler;
 import edu.wpi.first.wpilibj.smartdashboard.SendableChooser;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
+import frc.robot.commands.ArcadeDrive;
+import frc.robot.commands.BallSuccBlow;
 import frc.robot.commands.ExampleCommand;
+import frc.robot.commands.MoveArm;
 import frc.robot.subsystems.*;
 
 /**
@@ -29,7 +33,11 @@ public class Robot extends TimedRobot {
   public static BallIntake ballIntake;
   public static DriveTrain driveTrain;
   public static Arm arm;
+  public static HatchPiston piston;
   Command m_autonomousCommand;
+  ArcadeDrive drive = new ArcadeDrive();
+  
+
   SendableChooser<Command> m_chooser = new SendableChooser<>();
 
   /**
@@ -40,6 +48,9 @@ public class Robot extends TimedRobot {
   public void robotInit() {
     m_oi = new OI();
     ballIntake = new BallIntake();
+    driveTrain = new DriveTrain();
+    arm = new Arm();
+    piston = new HatchPiston();
     m_chooser.addDefault("Default Auto", new ExampleCommand());
     // chooser.addObject("My Auto", new MyAutoCommand());
     SmartDashboard.putData("Auto mode", m_chooser);
