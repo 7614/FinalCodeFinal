@@ -2,8 +2,8 @@ package frc.robot.commands;
 import frc.robot.subsystems.*;
 import edu.wpi.first.wpilibj.command.Command;
 import frc.robot.Robot;
-public class BallBlow extends Command{
-    public BallBlow(){
+public class BallSuccBlow extends Command{
+    public BallSuccBlow(){
         requires(Robot.ballIntake);
     }
     @Override
@@ -14,7 +14,6 @@ public class BallBlow extends Command{
     }
     @Override
     protected void execute(){
-        Robot.ballIntake.backwardMotor1();
-        Robot.ballIntake.forwardMotor2();
+        Robot.ballIntake.teleopInTake(Robot.m_oi.getJoystick());
     }
 }
