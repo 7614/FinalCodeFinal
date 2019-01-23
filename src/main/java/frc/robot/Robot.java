@@ -34,6 +34,7 @@ public class Robot extends TimedRobot {
   public static DriveTrain driveTrain;
   public static Arm arm;
   public static HatchPiston piston;
+  public static Potentiometer potentiometer;
   Command m_autonomousCommand;
   ArcadeDrive drive = new ArcadeDrive();
   
@@ -53,6 +54,7 @@ public class Robot extends TimedRobot {
     piston = new HatchPiston();
     m_chooser.addDefault("Default Auto", new ExampleCommand());
     // chooser.addObject("My Auto", new MyAutoCommand());
+    CameraServer.getInstance().startAutomaticCapture();
     SmartDashboard.putData("Auto mode", m_chooser);
   }
 

@@ -27,11 +27,15 @@ public class RobotMap {
    public static final int BALLINTAKE2 = 10;
    public static final int SOL1 = 11;
    public static final int SOL2 = 12;
+   public static final int WRISTPOTENTIOMETER = 13;
+   public static final int ELBOWPOTENTIOMETER = 14;
+   public static final int SHOULDERPOTENTIOMETER = 15;
    public static final int xboxLeftBumper = 1;
    public static final int xboxRightBumper =2;
    public static final int xboxAButton = 3;
    public static final int xboxBButton = 4;
    public static final int xboxXButton = 5; 
+  
   // If you are using multiple modules, make sure to define both the port
   // number and the module. For example you with a rangefinder:
   // public static int rangefinderPort = 1;
