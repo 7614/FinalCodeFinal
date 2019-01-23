@@ -12,20 +12,24 @@ import frc.robot.commands.*;
  */
 public class MoveArm extends Command {
 
-    int liftState;
-    public MoveArm(int liftState) {
-        this.liftState=liftState;
+    int angleMoveDir;
+   
+    public MoveArm(int angleMoveDir) {
+this.angleMoveDir=angleMoveDir;
         requires(Robot.arm);
         requires(Robot.potentiometer);
         
         setTimeout(.9);
     }
 
+
+   
     protected void initialize() {
 
     }
 
     protected void execute() {
+        Robot.arm.setAngle+=this.angleMoveDir;
         armControl();
     }
 
@@ -40,14 +44,20 @@ public class MoveArm extends Command {
     }
 
     public void armControl() {
-        if(liftState == 1){
-            //move up
-            if(Robot.potentiometer.get<360){
-
-            }
-        }else if (liftState == -1){
-
+        //PID MIGHT BE REQUIRED LOL
+        if(Robot.potentiometer.getShoulderRotDegrees()<Robot.arm.setAngle){
+            Robot.arm.moveShoulder(1);
+        }else if(Robot.potentiometer.getShoulderRotDegrees()>Robot.arm.setAngle){
+            Robot.arm.moveShoulder(-1);
         }
+
+        if(Robot.potentiometer.getElbowRotDegrees()<Robot.arm.setAngle){
+            Robot.arm.moveElbow(1);
+        }else if(Robot.potentiometer.getElbowRotDegrees()>Robot.arm.setAngle){
+            Robot.arm.moveElbow(-1);
+        }
+
+
     }
 
     protected void interrupted() {

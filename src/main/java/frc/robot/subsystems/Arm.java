@@ -5,6 +5,7 @@ import edu.wpi.first.wpilibj.GenericHID.Hand;
 import edu.wpi.first.wpilibj.command.Subsystem;
 import edu.wpi.first.wpilibj.drive.DifferentialDrive;
 import frc.robot.RobotMap;
+import frc.robot.commands.MoveArm;
 
 public class Arm extends Subsystem {
 
@@ -13,8 +14,10 @@ public class Arm extends Subsystem {
    private WPI_VictorSPX elbow = new WPI_VictorSPX(RobotMap.ELBOWMOTOR);
    private WPI_VictorSPX shoulder = new WPI_VictorSPX(RobotMap.SHOULDERMOTOR);
 
-   public void initDefaultCommand() {
+   public double setAngle;
 
+   public void initDefaultCommand() {
+      // setDefaultCommand(new MoveArm(angleMoveDir));
    }
 
    public void moveShoulder(double speed) {
@@ -42,6 +45,8 @@ public class Arm extends Subsystem {
    public void stopWrist() {
       shoulder.set(0);
    }
+
+   
 
    
    

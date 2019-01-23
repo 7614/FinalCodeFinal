@@ -12,6 +12,7 @@ import frc.robot.RobotMap;
 import frc.robot.OI.OI;
 import edu.wpi.first.wpilibj.command.Command;
 import edu.wpi.first.wpilibj.command.Scheduler;
+
 import edu.wpi.first.wpilibj.smartdashboard.SendableChooser;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import frc.robot.commands.ArcadeDrive;
@@ -35,6 +36,7 @@ public class Robot extends TimedRobot {
   public static Arm arm;
   public static HatchPiston piston;
   public static Potentiometer potentiometer;
+
   Command m_autonomousCommand;
   ArcadeDrive drive = new ArcadeDrive();
   
@@ -52,9 +54,10 @@ public class Robot extends TimedRobot {
     driveTrain = new DriveTrain();
     arm = new Arm();
     piston = new HatchPiston();
+potentiometer = new Potentiometer();
+
     m_chooser.addDefault("Default Auto", new ExampleCommand());
     // chooser.addObject("My Auto", new MyAutoCommand());
-    CameraServer.getInstance().startAutomaticCapture();
     SmartDashboard.putData("Auto mode", m_chooser);
   }
 
@@ -137,6 +140,8 @@ public class Robot extends TimedRobot {
   @Override
   public void teleopPeriodic() {
     Scheduler.getInstance().run();
+    new MoveArm(0).start();
+    new ArcadeDrive().start();
   }
 
   /**
