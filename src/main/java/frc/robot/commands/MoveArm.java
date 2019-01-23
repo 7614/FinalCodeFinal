@@ -1,8 +1,9 @@
 package frc.robot.commands;
 
 import frc.robot.subsystems.*;
-
+import edu.wpi.first.wpilibj.PIDInterface;
 import edu.wpi.first.wpilibj.command.Command;
+import edu.wpi.first.wpilibj.command.PIDCommand;
 import frc.robot.*;
 import frc.robot.commands.*;
 
@@ -11,10 +12,12 @@ import frc.robot.commands.*;
  */
 public class MoveArm extends Command {
 
-    int liftSpeed;
-    public MoveArm(int liftSpeed) {
-        this.liftSpeed=liftSpeed;
+    int liftState;
+    public MoveArm(int liftState) {
+        this.liftState=liftState;
         requires(Robot.arm);
+        requires(Robot.potentiometer);
+        
         setTimeout(.9);
     }
 
@@ -23,7 +26,7 @@ public class MoveArm extends Command {
     }
 
     protected void execute() {
-        armControl(liftSpeed);
+        armControl();
     }
 
     protected boolean isFinished() {
@@ -36,10 +39,15 @@ public class MoveArm extends Command {
         Robot.arm.stopWrist();
     }
 
-    public void armControl(double liftSpeed) {
-        Robot.arm.moveShoulder(liftSpeed);
-        Robot.arm.moveElbow(liftSpeed);
-        Robot.arm.moveWrist(liftSpeed);
+    public void armControl() {
+        if(liftState == 1){
+            //move up
+            if(Robot.potentiometer.get<360){
+
+            }
+        }else if (liftState == -1){
+
+        }
     }
 
     protected void interrupted() {
