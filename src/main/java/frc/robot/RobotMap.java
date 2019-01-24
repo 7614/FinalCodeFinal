@@ -30,6 +30,8 @@ public class RobotMap {
    public static final int WRISTPOTENTIOMETER = 13;
    public static final int ELBOWPOTENTIOMETER = 14;
    public static final int SHOULDERPOTENTIOMETER = 15;
+   public static final int SHOULDERLIMITSWITCH = 16;
+   public static final int ELBOWLIMITSWITCH = 17;
    public static final int xboxLeftBumper = 1;
    public static final int xboxRightBumper =2;
    public static final int xboxAButton = 3;

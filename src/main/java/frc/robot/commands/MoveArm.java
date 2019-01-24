@@ -12,10 +12,11 @@ import frc.robot.commands.*;
  */
 public class MoveArm extends Command {
 
+    //direction that the angle will move towards;
     int angleMoveDir;
    
     public MoveArm(int angleMoveDir) {
-this.angleMoveDir=angleMoveDir;
+        this.angleMoveDir=angleMoveDir;
         requires(Robot.arm);
         requires(Robot.potentiometer);
         
@@ -29,7 +30,7 @@ this.angleMoveDir=angleMoveDir;
     }
 
     protected void execute() {
-        Robot.arm.setAngle+=this.angleMoveDir;
+        Robot.arm.targetAngle+=this.angleMoveDir;
         armControl();
     }
 
@@ -45,15 +46,15 @@ this.angleMoveDir=angleMoveDir;
 
     public void armControl() {
         //PID MIGHT BE REQUIRED LOL
-        if(Robot.potentiometer.getShoulderRotDegrees()<Robot.arm.setAngle){
+        if((Robot.potentiometer.getShoulderRotDegrees()<Robot.arm.targetAngle)&&(!Robot.limitSwitch.shoulderIsMax())){
             Robot.arm.moveShoulder(1);
-        }else if(Robot.potentiometer.getShoulderRotDegrees()>Robot.arm.setAngle){
+        }else if(Robot.potentiometer.getShoulderRotDegrees()>Robot.arm.targetAngle){
             Robot.arm.moveShoulder(-1);
         }
 
-        if(Robot.potentiometer.getElbowRotDegrees()<Robot.arm.setAngle){
+        if((Robot.potentiometer.getElbowRotDegrees()<Robot.arm.targetAngle)&&(!Robot.limitSwitch.elbowisMax())){
             Robot.arm.moveElbow(1);
-        }else if(Robot.potentiometer.getElbowRotDegrees()>Robot.arm.setAngle){
+        }else if(Robot.potentiometer.getElbowRotDegrees()>Robot.arm.targetAngle){
             Robot.arm.moveElbow(-1);
         }
 

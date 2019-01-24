@@ -36,7 +36,7 @@ public class Robot extends TimedRobot {
   public static Arm arm;
   public static HatchPiston piston;
   public static Potentiometer potentiometer;
-
+  public static LimitSwitch limitSwitch;
   Command m_autonomousCommand;
   ArcadeDrive drive = new ArcadeDrive();
   
@@ -55,6 +55,7 @@ public class Robot extends TimedRobot {
     arm = new Arm();
     piston = new HatchPiston();
 potentiometer = new Potentiometer();
+limitSwitch= new LimitSwitch();
 
     m_chooser.addDefault("Default Auto", new ExampleCommand());
     // chooser.addObject("My Auto", new MyAutoCommand());
@@ -140,8 +141,7 @@ potentiometer = new Potentiometer();
   @Override
   public void teleopPeriodic() {
     Scheduler.getInstance().run();
-    new MoveArm(0).start();
-    new ArcadeDrive().start();
+
   }
 
   /**

@@ -14,14 +14,15 @@ public class Arm extends Subsystem {
    private WPI_VictorSPX elbow = new WPI_VictorSPX(RobotMap.ELBOWMOTOR);
    private WPI_VictorSPX shoulder = new WPI_VictorSPX(RobotMap.SHOULDERMOTOR);
 
-   public double setAngle;
+   public double targetAngle;
+   final public static double ARMSPEED = 1;
 
    public void initDefaultCommand() {
-      // setDefaultCommand(new MoveArm(angleMoveDir));
+      setDefaultCommand(new MoveArm(0));
    }
 
    public void moveShoulder(double speed) {
-      shoulder.set(speed);
+      shoulder.set(speed * ARMSPEED);
    }
 
    public void stopShoulder() {
@@ -30,7 +31,7 @@ public class Arm extends Subsystem {
 
   
    public void moveElbow(double speed) {
-      shoulder.set(speed);
+      shoulder.set(speed * ARMSPEED);
    }
 
    public void stopElbow() {
@@ -38,7 +39,7 @@ public class Arm extends Subsystem {
    }
 
    public void moveWrist(double speed) {
-      shoulder.set(speed);
+      shoulder.set(speed * ARMSPEED);
       
    }
 
