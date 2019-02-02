@@ -31,20 +31,20 @@ public class Arm extends Subsystem {
 
   
    public void moveElbow(double speed) {
-      shoulder.set(speed * ARMSPEED);
+      elbow.set(speed * ARMSPEED);
    }
 
    public void stopElbow() {
-      shoulder.set(0);
+      elbow.set(0);
    }
 
    public void moveWrist(double speed) {
-      shoulder.set(speed * ARMSPEED);
+      wrist.set(speed * ARMSPEED);
       
    }
 
    public void stopWrist() {
-      shoulder.set(0);
+      wrist.set(0);
    }
 
    

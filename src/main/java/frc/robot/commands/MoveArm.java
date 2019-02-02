@@ -26,6 +26,12 @@ public class MoveArm extends Command {
 
    
     protected void initialize() {
+        // setAngle = Robot.arm.targetAngle;
+        // currentAngle =0;
+        // deltaAngle =0;
+        // deltaAngleRate=0;
+        // speed=0;
+        // lastDeltaAngle=0;
 
     }
 
@@ -44,8 +50,32 @@ public class MoveArm extends Command {
         Robot.arm.stopWrist();
     }
 
+    //THIS NEEDS TESTING
+    // final static double INTERVAL = 0.02;
+    // final static double KP=0.5;
+    // final static double KI=0.5;
+    // private double setAngle;
+    // private double currentAngle;
+    // private double deltaAngle;
+    // private double deltaAngleRate;
+    // private double speed;
+    // private double lastDeltaAngle;
+
+    // public double ShoulderPID(){
+         
+    //      currentAngle = Robot.potentiometer.getShoulderRotDegrees();
+    //      deltaAngle = currentAngle - setAngle;
+    //      deltaAngleRate = (deltaAngle - lastDeltaAngle)/INTERVAL;
+    //      speed = KP * deltaAngle + KI * deltaAngleRate;
+    //      lastDeltaAngle=currentAngle;
+    //      return speed;
+    // }
+    
+
     public void armControl() {
         //PID MIGHT BE REQUIRED LOL
+
+
         if((Robot.potentiometer.getShoulderRotDegrees()<Robot.arm.targetAngle)&&(!Robot.limitSwitch.shoulderIsMax())){
             Robot.arm.moveShoulder(1);
         }else if(Robot.potentiometer.getShoulderRotDegrees()>Robot.arm.targetAngle){
