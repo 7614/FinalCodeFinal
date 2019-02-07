@@ -15,29 +15,31 @@ package frc.robot;
  */
 public class RobotMap {
   // For example to map the left and right motors, you could define the
-   public static final int FRONTRIGHTMOTOR = 1;
-   public static final int FRONTLEFTMOTOR = 2;
-   public static final int BACKRIGHTMOTOR = 3;
-   public static final int BACKLEFTMOTOR = 4;
-   public static final int JOYSTICKPORT = 5;
-   public static final int WRISTMOTOR = 6;
-   public static final int ELBOWMOTOR = 7;
-   public static final int SHOULDERMOTOR = 8;
-   public static final int BALLINTAKE1 = 9;
-   public static final int BALLINTAKE2 = 10;
-   public static final int SOL1 = 11;
-   public static final int SOL2 = 12;
-   public static final int WRISTPOTENTIOMETER = 13;
-   public static final int ELBOWPOTENTIOMETER = 14;
-   public static final int SHOULDERPOTENTIOMETER = 15;
-   public static final int SHOULDERLIMITSWITCH = 16;
-   public static final int ELBOWLIMITSWITCH = 17;
-   public static final int xboxLeftBumper = 1;
-   public static final int xboxRightBumper =2;
-   public static final int xboxAButton = 3;
-   public static final int xboxBButton = 4;
-   public static final int xboxXButton = 5; 
-  
+  public static final int FRONTRIGHTMOTOR = 1;
+  public static final int FRONTLEFTMOTOR = 2;
+  public static final int BACKRIGHTMOTOR = 3;
+  public static final int BACKLEFTMOTOR = 4;
+  public static final int JOYSTICKPORT = 5;
+  public static final int WRISTMOTOR = 6;
+  public static final int ELBOWMOTOR = 7;
+  public static final int SHOULDERMOTOR = 8;
+  public static final int BALLINTAKE1 = 9;
+  public static final int BALLINTAKE2 = 10;
+  public static final int SOL1 = 11;
+  public static final int SOL2 = 12;
+  public static final int WRISTPOTENTIOMETER = 13;
+  public static final int ELBOWPOTENTIOMETER = 14;
+  public static final int SHOULDERPOTENTIOMETER = 15;
+  public static final int SHOULDERLIMITSWITCH = 16;
+  public static final int ELBOWLIMITSWITCH = 17;
+
+  public class XBOX {
+    public static final int BUMPER_L = 1;
+    public static final int BUMPER_R = 2;
+    public static final int BUTTON_A = 3;
+    public static final int BUTTON_B = 4;
+    public static final int BUTTON_X = 5; 
+  }
   // If you are using multiple modules, make sure to define both the port
   // number and the module. For example you with a rangefinder:
   // public static int rangefinderPort = 1;

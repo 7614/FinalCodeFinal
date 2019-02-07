@@ -55,19 +55,20 @@ public class OI{
    * controller.
    * 
    * @return the xbox controller object
-   */
+  **/
 
   
-   public XboxController getJoystick(){
-     return this.xbox;
-   }
-
-    XboxController xbox = new XboxController(RobotMap.JOYSTICKPORT);
-    Button liftUpButton = new JoystickButton(xbox, RobotMap.xboxRightBumper);
-    Button liftDownButton = new JoystickButton(xbox, RobotMap.xboxRightBumper);
-    Button ballSuccButton = new JoystickButton(xbox, RobotMap.xboxAButton);
-    Button ballBlowButton = new JoystickButton(xbox, RobotMap.xboxBButton);
-    Button releaseHatchButton = new JoystickButton(xbox,RobotMap.xboxXButton);
+  public XboxController getJoystick(){
+    return this.xbox;
+  }
+  
+  XboxController xbox       = new XboxController(RobotMap.JOYSTICKPORT);
+  
+  Button liftUpButton       = new JoystickButton(xbox, RobotMap.XBOX.BUMPER_R);
+  Button liftDownButton     = new JoystickButton(xbox, RobotMap.XBOX.BUMPER_L);
+  Button ballSuccButton     = new JoystickButton(xbox, RobotMap.XBOX.BUTTON_A);
+  Button ballBlowButton     = new JoystickButton(xbox, RobotMap.XBOX.BUTTON_B);
+  Button releaseHatchButton = new JoystickButton(xbox, RobotMap.XBOX.BUTTON_X);
     
  
 
