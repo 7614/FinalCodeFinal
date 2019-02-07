@@ -18,8 +18,8 @@ public class LimitSwitch extends Subsystem {
     // Put methods for controlling this subsystem
     // here. Call these from Commands.
 
-    public DigitalInput shoulderLimitSwitch = new DigitalInput(RobotMap.SHOULDERLIMITSWITCH);
-    public DigitalInput elbowLimitSwitch = new DigitalInput(RobotMap.ELBOWLIMITSWITCH);
+    public DigitalInput flapUpperLimitSwitch = new DigitalInput(RobotMap.FLAPUPPERLIMITSWITCH);
+    public DigitalInput flapLowerLimitSwitch = new DigitalInput(RobotMap.FLAPLOWERLIMITSWITCH);
 
     @Override
     public void initDefaultCommand() {
@@ -28,12 +28,12 @@ public class LimitSwitch extends Subsystem {
         // setDefaultCommand(new MySpecialCommand());
     }
 
-    public boolean shoulderIsMax(){
-        return shoulderLimitSwitch.get();
+    public boolean flapIsMaxErect(){
+        return flapUpperLimitSwitch.get();
     }
 
-    public boolean elbowisMax(){
-        return elbowLimitSwitch.get();
+    public boolean flapIsMaxFlaccid(){
+        return flapLowerLimitSwitch.get();
     }
 
 

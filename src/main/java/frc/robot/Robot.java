@@ -34,7 +34,7 @@ public class Robot extends TimedRobot {
   public static BallIntake ballIntake;
   public static DriveTrain driveTrain;
   public static Arm arm;
-  public static HatchPiston piston;
+  public static Flap flap;
   public static Potentiometer potentiometer;
   public static LimitSwitch limitSwitch;
   Command m_autonomousCommand;
@@ -53,7 +53,7 @@ public class Robot extends TimedRobot {
     ballIntake = new BallIntake();
     driveTrain = new DriveTrain();
     arm = new Arm();
-    piston = new HatchPiston();
+    flap = new Flap();
 potentiometer = new Potentiometer();
 limitSwitch= new LimitSwitch();
 

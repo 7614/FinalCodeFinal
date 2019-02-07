@@ -5,10 +5,17 @@ import frc.robot.Robot;
 public class BallSuccBlow extends Command{
 
     int succBlowMode;
+
+    /**
+     * backk suck
+     * @param mode hi
+     */
     public BallSuccBlow(int mode){
         requires(Robot.ballIntake);
         this.succBlowMode=mode;
     }
+
+    
     @Override
     protected boolean isFinished(){
         //just for now 
@@ -17,12 +24,13 @@ public class BallSuccBlow extends Command{
     }
     @Override
     protected void execute(){
+        
         if(this.succBlowMode==1){
-            Robot.ballIntake.backwardMotor1();
-            Robot.ballIntake.forwardMotor2();
+            Robot.ballIntake.forwardMotor();
+       
         }else if(this.succBlowMode==-1){
-            Robot.ballIntake.backwardMotor2();
-            Robot.ballIntake.forwardMotor1();
+         
+            Robot.ballIntake.backwardMotor();
         }
     }
 }

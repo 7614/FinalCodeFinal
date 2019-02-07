@@ -76,17 +76,17 @@ public class MoveArm extends Command {
         //PID MIGHT BE REQUIRED LOL
 
 
-        if((Robot.potentiometer.getShoulderRotDegrees()<Robot.arm.targetAngle)&&(!Robot.limitSwitch.shoulderIsMax())){
-            Robot.arm.moveShoulder(1);
-        }else if(Robot.potentiometer.getShoulderRotDegrees()>Robot.arm.targetAngle){
-            Robot.arm.moveShoulder(-1);
-        }
+        // if((Robot.potentiometer.getShoulderRotDegrees()<Robot.arm.targetAngle)&&(!Robot.limitSwitch.shoulderIsMax())){
+        //     Robot.arm.moveShoulder(1);
+        // }else if(Robot.potentiometer.getShoulderRotDegrees()>Robot.arm.targetAngle){
+        //     Robot.arm.moveShoulder(-1);
+        // }
 
-        if((Robot.potentiometer.getElbowRotDegrees()<Robot.arm.targetAngle)&&(!Robot.limitSwitch.elbowisMax())){
-            Robot.arm.moveElbow(1);
-        }else if(Robot.potentiometer.getElbowRotDegrees()>Robot.arm.targetAngle){
-            Robot.arm.moveElbow(-1);
-        }
+        // if((Robot.potentiometer.getElbowRotDegrees()<Robot.arm.targetAngle)&&(!Robot.limitSwitch.elbowisMax())){
+        //     Robot.arm.moveElbow(1);
+        // }else if(Robot.potentiometer.getElbowRotDegrees()>Robot.arm.targetAngle){
+        //     Robot.arm.moveElbow(-1);
+        // }
 
 
     }

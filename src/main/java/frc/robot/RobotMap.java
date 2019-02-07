@@ -23,15 +23,15 @@ public class RobotMap {
   public static final int WRISTMOTOR = 6;
   public static final int ELBOWMOTOR = 7;
   public static final int SHOULDERMOTOR = 8;
-  public static final int BALLINTAKE1 = 9;
-  public static final int BALLINTAKE2 = 10;
+  public static final int BALLINTAKE = 9;
   public static final int SOL1 = 11;
   public static final int SOL2 = 12;
   public static final int WRISTPOTENTIOMETER = 13;
   public static final int ELBOWPOTENTIOMETER = 14;
   public static final int SHOULDERPOTENTIOMETER = 15;
-  public static final int SHOULDERLIMITSWITCH = 16;
-  public static final int ELBOWLIMITSWITCH = 17;
+  public static final int FLAPUPPERLIMITSWITCH = 16;
+  public static final int FLAPLOWERLIMITSWITCH = 17;
+  public static final int HATCHMOTOR =6;
 
   public class XBOX {
     public static final int BUMPER_L = 1;

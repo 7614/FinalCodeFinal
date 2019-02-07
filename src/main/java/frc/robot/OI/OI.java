@@ -77,6 +77,6 @@ public class OI{
     liftDownButton.whenPressed(new MoveArm(-1));
     ballBlowButton.whenPressed(new BallSuccBlow(1));
     ballBlowButton.whenPressed(new BallSuccBlow(-1));
-    releaseHatchButton.whenPressed(new Release());
+    // releaseHatchButton.whenPressed(new Release());
   }
 }

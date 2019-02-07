@@ -8,18 +8,20 @@
 package frc.robot.subsystems;
 
 import edu.wpi.first.wpilibj.command.Subsystem;
+import com.ctre.phoenix.motorcontrol.can.WPI_VictorSPX;
+import frc.robot.RobotMap;
 
-public class ExampleSubsystem extends Subsystem {
+public class Flap extends Subsystem {
   private WPI_VictorSPX motor1 = new WPI_VictorSPX(RobotMap.HATCHMOTOR);
   @Override
   protected void initDefaultCommand() {
     // Set the default command for a subsystem here.
     // setDefaultCommand(new MySpecialCommand());
   }
-  public void flapErect(){
+  public void erect(){
       motor1.set(1);
   }
-  public void flapFlacid(){
-      motor1.set(0);
+  public void flaccid(){
+      motor1.set(-1);
   }
 }

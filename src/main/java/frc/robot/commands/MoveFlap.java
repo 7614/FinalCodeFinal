@@ -14,10 +14,11 @@ import frc.robot.subsystems.HatchPiston;
 /**
  * An example command.  You can replace me with your own command.
  */
-public class Release extends Command {
-  public Release() {
+public class MoveFlap extends Command {
+  public MoveFlap(int direction) {
     // Use requires() here to declare subsystem dependencies
-    requires(Robot.piston);
+    requires(Robot.flap);
+    requires(Robot.limitSwitch);
   }
 
   // Called just before this Command runs the first time
@@ -28,7 +29,7 @@ public class Release extends Command {
   // Called repeatedly when this Command is scheduled to run
   @Override
   protected void execute() {
-      Robot.piston.pushHatch();
+     // if(Robot.limitSwitch.)
   }
 
   // Make this return true when this Command no longer needs to run execute()
