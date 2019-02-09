@@ -49,13 +49,14 @@ public class Robot extends TimedRobot {
    */
   @Override
   public void robotInit() {
+    CameraServer.getInstance().startAutomaticCapture();
     m_oi = new OI();
     ballIntake = new BallIntake();
     driveTrain = new DriveTrain();
     arm = new Arm();
     flap = new Flap();
-potentiometer = new Potentiometer();
-limitSwitch= new LimitSwitch();
+    potentiometer = new Potentiometer();
+    limitSwitch= new LimitSwitch();
 
     m_chooser.addDefault("Default Auto", new ExampleCommand());
     // chooser.addObject("My Auto", new MyAutoCommand());
